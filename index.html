@@ -90,7 +90,7 @@
                 <!-- /.chat_space -->
                 <div class="chat_inputs d_flex align_items_center justify_content_space_between">
                     <i class="fa-solid fa-face-smile"></i>
-                    <input type="text" placeholder="Scrivi un messaggio">
+                    <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage">
                     <i class="fa-solid fa-microphone"></i>
                 </div>
                 <!-- /.chat_inputs -->

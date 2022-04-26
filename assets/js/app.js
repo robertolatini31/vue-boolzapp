@@ -2,6 +2,7 @@ const app = new Vue ({
     el: '#app',
     data: {
         activeChat: 0,
+        newMessage: '',
         contacts: [
             {
                 name: 'Michele',
@@ -169,6 +170,15 @@ const app = new Vue ({
     methods: {
         activeMyChat(index) {
             this.activeChat = index;
+        },
+        addMessage() {
+            const objNewMessage = {
+                date: new Date().toLocaleDateString(),
+                message: this.newMessage,
+                status: 'sent'
+            }
+            this.contacts[this.activeChat].messages.push(objNewMessage);
+            this.newMessage = '';
         }
     }
 })
