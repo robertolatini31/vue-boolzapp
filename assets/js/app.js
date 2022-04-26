@@ -167,7 +167,9 @@ const app = new Vue ({
         ]
     },
     methods: {
-        
+        activeMyChat(index) {
+            this.activeChat = index;
+        }
     }
 })
 
