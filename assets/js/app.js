@@ -168,15 +168,12 @@ const app = new Vue ({
         ]
     },
     methods: {
-        imgUrl(index) {
-            return `./assets/img/avatar${this.contacts[index].avatar}.jpg`
-        },
         activeMyChat(index) {
             this.activeChat = index;
         },
         addMessage() {
             const objNewMessage = {
-                date: new Date().toLocaleDateString(),
+                date: new Date().toLocaleDateString(), 
                 message: this.newMessage,
                 status: 'sent'
             }
