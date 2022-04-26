@@ -3,6 +3,7 @@
     --dark_grey_color: #B1B1B1;
     --light_blue_bg_color: #8EDAFC;
     --light_white_bg_color: #F2FBFF;
+    --darker_grey_color: #6B7376;
 
 
 }
@@ -71,6 +72,10 @@ input {border:0;outline:0;}
 input:focus {outline:none!important;}
 
 /* #endregion COMMON  */
+
+
+/* #region ASIDE  */
+
 .container {
     height: 90vh;
     margin: 5vh auto;
@@ -83,6 +88,7 @@ input:focus {outline:none!important;}
 
 .container>aside {
     width: 35%;
+    border-right: 2px solid #e4e3e3;
 }
 
 .container>main {
@@ -93,11 +99,11 @@ input:focus {outline:none!important;}
     width: 100%;
 }
 
-.user_contact {
+.user_contact, .chat_contact {
     background-color: var(--light_grey_color);
 }
 
-.user_contact i {
+.user_contact i, .chat_contact i {
     color: var(--dark_grey_color);
 }
 
@@ -144,4 +150,23 @@ input:focus {outline:none!important;}
     color: var(--dark_grey_color);
 }
 
+/* #endregion ASIDE  */
 
+/* #region MAIN  */
+
+.chat_inputs {
+    padding: 0.4rem 1rem;
+    background-color: #F3EEEA;
+}
+
+.chat_inputs i {
+    color: var(--darker_grey_color);
+}
+
+.chat_inputs input {
+    width: 80%;
+    
+    border-radius: 3px;
+    padding: 0.5rem;
+}
+/* #endregion MAIN  */
