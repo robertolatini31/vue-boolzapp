@@ -48,7 +48,7 @@
                 <div class="contacts d_flex direction_column">
                     <div class="contact d_flex justify_content_space_between fs_08" v-for="(contact, index) in contacts" @click="activeMyChat(index)">
                         <div class="contatcs_info d_flex column_gap_04">
-                            <img class="users_img" :src="contact.avatar" alt="">
+                            <img class="users_img" :src="imgUrl(index)" alt="">
                             <div class="text_contatc">
                                 <h4>{{contact.name}}</h4>
                                 <span>ultimo messaggio</span>
@@ -67,7 +67,7 @@
                 <div class="chat_info">
                     <div class="chat_contact p_05 d_flex justify_content_space_between">
                         <div class="user_info d_flex align_items_center column_gap_04">
-                            <img class="users_img" :src="contacts[activeChat].avatar" alt="">
+                            <img class="users_img" :src="imgUrl(activeChat)" alt="">
                             <p>{{contacts[activeChat].name}}</p>
                         </div>
                         <!-- /.user_info -->
