@@ -131,4 +131,17 @@ input:focus {outline:none!important;}
     width: 100%;
 }
 
+.contacts {
+    overflow-y: auto;
+}
+
+.contact {
+    padding: 0.5rem 1rem;
+    border-top: 2px solid #f9f9f9;
+}
+
+.contact span {
+    color: var(--dark_grey_color);
+}
+
 
