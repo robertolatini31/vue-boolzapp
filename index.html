@@ -31,7 +31,7 @@
                     <!-- /.user_icons -->
                 </div>
                 <!-- /.user_contact -->
-                <div class="enable_notifications p_1 d_flex align_items_center column_gap_04">
+                <div class="enable_notifications d_flex align_items_center column_gap_04">
                     <i class="fa-solid fa-bell-slash"></i>
                     <div class="text_notifications fs_08">
                         <p>Ricevi notifiche di nuovi messaggi</p>
@@ -67,8 +67,8 @@
                 <div class="chat_info">
                     <div class="chat_contact p_05 d_flex justify_content_space_between">
                         <div class="user_info d_flex align_items_center column_gap_04">
-                            <img class="users_img" src="./assets/img/avatar_4.jpg" alt="">
-                            <p>Roberto</p>
+                            <img class="users_img" :src="contacts[activeChat].avatar" alt="">
+                            <p>{{contacts[activeChat].name}}</p>
                         </div>
                         <!-- /.user_info -->
                         <div class="d_flex align_items_center column_gap_08">
@@ -81,8 +81,11 @@
                     <!-- /.user_contact -->
                 </div>
                 <!-- /.chat_info -->
-                <div class="chat_messages">
-
+                <div class="chat_messages d_flex direction_column p_1">         
+                    <div v-for="text in contacts[activeChat].messages" :class="text.status === 'sent' ? 'message_sent' : 'message_received'">
+                        <span>{{text.message}}</span>                
+                    </div>
+                    <!-- /.message sent-received  -->
                 </div>
                 <!-- /.chat_space -->
                 <div class="chat_inputs d_flex align_items_center justify_content_space_between">
