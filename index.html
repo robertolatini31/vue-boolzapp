@@ -5,19 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boolzap</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
     
 
     <div id="app">
-        
+        <div class="container d_flex">
+            <aside class="aside_contacts d_flex direction_column">
+                <div class="user_contact d_flex justify_content_space_between">
+                    <div class="user_info d_flex align_items_center column_gap_04">
+                        <img class="users_img" src="./assets/img/avatar_4.jpg" alt="">
+                        <p>Roberto</p>
+                    </div>
+                    <!-- /.user_info -->
+                    <div class="user_icons d_flex align_items_center column_gap_08">
+                        <i class="fa-solid fa-circle-notch"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                    <!-- /.user_icons -->
+                </div>
+                <!-- /.user_contact -->
+                <div class="enable_notifications"></div>
+                <!-- /.enable_notifications -->
+                <div class="find_contacts"></div>
+                <!-- /.find_contacts -->
+                <div class="contacts"></div>
+                <!-- /.contacts -->
+            </aside>
+            <!-- /.aside_contacts -->
+            <main class="main_chat"></main>
+            <!-- /.main_chat -->
+        </div>
+        <!-- /.container -->
     </div>
     <!-- /#app -->
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="./assets/js/app.js"></script>
 </body>
 </html>
