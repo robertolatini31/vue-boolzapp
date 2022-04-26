@@ -1,6 +1,9 @@
 :root {
     --light_grey_color: #EAEAEA;
     --dark_grey_color: #B1B1B1;
+    --light_blue_bg_color: #8EDAFC;
+    --light_white_bg_color: #F2FBFF;
+
 
 }
 * {
@@ -43,6 +46,18 @@ img {
     column-gap: 0.8rem;
 }
 
+.p_05 {
+    padding: 0.5rem;
+}
+
+.p_1 {
+    padding: 1rem;
+}
+
+.fs_08 {
+    font-size: 0.8rem;
+}
+
 /* #endregion UTILITY  */
 
 /* #region COMMON  */
@@ -74,7 +89,6 @@ img {
 
 .aside_contacts>div {
     width: 100%;
-    padding: 0.5rem;
 }
 
 .user_contact {
@@ -84,5 +98,22 @@ img {
 .user_contact i {
     color: var(--dark_grey_color);
 }
+
+.enable_notifications i {
+    padding: 0.8rem 0.6rem;
+    background-color: var(--light_white_bg_color);
+    border-radius: 50%;
+    color: var(--light_blue_bg_color);
+}
+
+.enable_notifications {
+    background-color: var(--light_blue_bg_color);
+}
+
+.text_notifications>a {
+    color: rgb(91, 91, 91);
+    font-size: 11px;
+}
+
 
 
