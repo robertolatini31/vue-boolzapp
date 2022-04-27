@@ -25,7 +25,7 @@ img {
 /* #region UTILITY  */
 
 .bg_active {
-    background-color: #E9EBEB;
+    background-color: #E9EBEB!important;
 }
 
 .d_none {
@@ -163,6 +163,10 @@ aside {
     padding: 0.5rem 1rem;
     border-top: 2px solid #f9f9f9;
     cursor: pointer;
+}
+
+.contact:hover {
+    background-color: whitesmoke;
 }
 
 .contact span {
