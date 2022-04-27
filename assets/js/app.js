@@ -172,7 +172,8 @@ const app = new Vue ({
             this.activeChat = index;
         },
         addMessage() {
-            const newDate = new Date().toLocaleDateString();
+            const options = { year: "numeric", month: "2-digit", day: "2-digit",};
+            const newDate = new Date().toLocaleDateString(undefined, options);
             const newTime = new Date().toLocaleTimeString();
             // console.log(newDate, newTime);
             const objNewMessage = {
@@ -184,7 +185,8 @@ const app = new Vue ({
             this.newMessage = '';
             let self = this;
             setTimeout(function () {
-                const newDate = new Date().toLocaleDateString();
+                const options = { year: "numeric", month: "2-digit", day: "2-digit",};
+                const newDate = new Date().toLocaleDateString(undefined, options);
                 const newTime = new Date().toLocaleTimeString();
                 // console.log(newDate, newTime);
                 const objNewMessage = {
