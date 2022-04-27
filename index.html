@@ -82,8 +82,9 @@
                 </div>
                 <!-- /.chat_info -->
                 <div class="chat_messages d_flex direction_column p_1">         
-                    <div v-for="text in contacts[activeChat].messages" :class="text.status === 'sent' ? 'message_sent' : 'message_received'">
-                        <span>{{text.message}}</span>                
+                    <div v-for="(text, index) in contacts[activeChat].messages" :class="text.status === 'sent' ? 'message_sent' : 'message_received'" class="d_flex direction_column">
+                        <span class="text_message">{{text.message}}</span>
+                        <span class="hours">{{ showTimeMessage(index) }}</span>          
                     </div>
                     <!-- /.message sent-received  -->
                 </div>

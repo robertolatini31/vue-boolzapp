@@ -215,6 +215,9 @@ const app = new Vue ({
             const lastMessageTime = lastMessageDate.substr(10, 6);
             return lastMessageTime;
         },
+        showTimeMessage(index) {
+            return this.contacts[this.activeChat].messages[index].date.substr(10, 6);
+        },
         findContact(){
             this.contacts.forEach(contact => {
                 if (!contact.name.toLowerCase().includes(this.finder.toLowerCase()) && this.finder.length !== 0) {
