@@ -182,6 +182,14 @@ const app = new Vue ({
             }
             this.contacts[this.activeChat].messages.push(objNewMessage);
             this.newMessage = '';
+        },
+        showLastMessage(index){
+            const contact = this.contacts[index];
+            const length = contact.messages.length;
+            // console.log('array lungo: ' + length);
+            const position = length - 1;
+            const lastMessage = contact.messages[position].message;
+            return lastMessage;
         }
     }
 })

@@ -51,7 +51,7 @@
                             <img class="users_img" :src="'./assets/img/avatar' + contact.avatar + '.jpg'" alt="">
                             <div class="text_contatc">
                                 <h4>{{contact.name}}</h4>
-                                <span>ultimo messaggio</span>
+                                <span>{{ showLastMessage(index) }}</span>
                             </div>
                             <!-- /.text_contatc -->
                         </div>
