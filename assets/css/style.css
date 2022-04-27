@@ -226,9 +226,14 @@ aside {
     padding-right: 4rem;
 }
 
+.users_info_text>.last_access {
+    color: var(--darker_grey_color);
+    font-size: 0.7rem;
+}
+
 .chat_messages .hours {
-    align-self: flex-end;
     color: var(--dark_grey_color);
+    align-self: flex-end;
     font-size: 0.5rem;
 }
 
