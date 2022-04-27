@@ -172,8 +172,8 @@ const app = new Vue ({
             this.activeChat = index;
         },
         addMessage() {
-            newDate = new Date().toLocaleDateString();
-            newTime = new Date().toLocaleTimeString();
+            const newDate = new Date().toLocaleDateString();
+            const newTime = new Date().toLocaleTimeString();
             // console.log(newDate, newTime);
             const objNewMessage = {
                 date: newDate + ' ' + newTime, 
@@ -182,6 +182,18 @@ const app = new Vue ({
             }
             this.contacts[this.activeChat].messages.push(objNewMessage);
             this.newMessage = '';
+            let self = this;
+            setTimeout(function () {
+                const newDate = new Date().toLocaleDateString();
+                const newTime = new Date().toLocaleTimeString();
+                // console.log(newDate, newTime);
+                const objNewMessage = {
+                    date: newDate + ' ' + newTime, 
+                    message: 'OK',
+                    status: 'received'
+                }
+                self.contacts[self.activeChat].messages.push(objNewMessage);
+            }, 1000)
         },
         showLastMessage(index){
             const contact = this.contacts[index];
@@ -190,6 +202,9 @@ const app = new Vue ({
             const position = length - 1;
             const lastMessage = contact.messages[position].message;
             return lastMessage;
+        },
+        showTimeMessage() {
+            
         }
     }
 })
