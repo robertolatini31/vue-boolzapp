@@ -72,6 +72,26 @@ img {
 
 /* #region COMMON  */
 
+.container {
+    height: 90vh;
+    margin: 5vh auto;
+    width: 80vw;
+    box-shadow: 0px 0px 10px 0px;
+}
+
+.container>aside, .container>main {
+    height: 100%;
+}
+
+.container>aside {
+    width: 35%;
+    border-right: 2px solid #e4e3e3;
+}
+
+.container>main {
+    width: 65%;
+}
+
 i {
     cursor: pointer;
 }
@@ -91,25 +111,6 @@ input:focus {outline:none!important;}
 
 aside {
     background-color: white;
-}
-
-.container {
-    height: 90vh;
-    margin: 5vh auto;
-    width: 80vw;
-}
-
-.container>aside, .container>main {
-    height: 100%;
-}
-
-.container>aside {
-    width: 35%;
-    border-right: 2px solid #e4e3e3;
-}
-
-.container>main {
-    width: 65%;
 }
 
 .aside_contacts>div {
