@@ -24,6 +24,10 @@ img {
 
 /* #region UTILITY  */
 
+.bg_active {
+    background-color: red!important;
+}
+
 .d_none {
     display: none!important;
 }

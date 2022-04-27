@@ -46,7 +46,7 @@
                 </div>
                 <!-- /.find_contacts -->
                 <div class="contacts d_flex direction_column">
-                    <div class="contact d_flex justify_content_space_between fs_08" v-for="(contact, index) in contacts" @click="activeMyChat(index)" :class="contact.visible ? '' : 'd_none'">
+                    <div class="contact d_flex justify_content_space_between fs_08" v-for="(contact, index) in contacts" @click="activeMyChat(index)" :class="contact.visible ? '' : 'd_none'" :class="index == activeChat ? 'bg_active' : '' ">
                         <div class="contatcs_info d_flex column_gap_04">
                             <img class="users_img" :src="'./assets/img/avatar' + contact.avatar + '.jpg'" alt="">
                             <div class="text_contatc">
