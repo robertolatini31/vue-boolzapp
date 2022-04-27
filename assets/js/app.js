@@ -3,6 +3,7 @@ const app = new Vue ({
     data: {
         activeChat: 0,
         newMessage: '',
+        finder: '',
         contacts: [
             {
                 name: 'Michele',
