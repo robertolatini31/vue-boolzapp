@@ -199,21 +199,12 @@ const app = new Vue ({
             }, 1000)
         },
         showLastMessage(index){
-            const contact = this.contacts[index];
-            const length = contact.messages.length;
-            // console.log('array lungo: ' + length);
-            const position = length - 1;
-            const lastMessage = contact.messages[position].message;
-            return lastMessage;
+            const position = this.contacts[index].messages.length - 1;
+            return this.contacts[index].messages[position].message;
         },
         showLastTimeMessage(index) {
-            const contact = this.contacts[index];
-            const length = contact.messages.length;
-            // console.log('array lungo: ' + length);
-            const position = length - 1;
-            const lastMessageDate = contact.messages[position].date;
-            const lastMessageTime = lastMessageDate.substr(10, 6);
-            return lastMessageTime;
+            const position = this.contacts[index].messages.length - 1;
+            return this.contacts[index].messages[position].date.substr(10, 6);
         },
         showTimeMessage(index) {
             return this.contacts[this.activeChat].messages[index].date.substr(10, 6);
