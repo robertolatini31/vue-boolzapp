@@ -42,7 +42,7 @@
                 <!-- /.enable_notifications -->
                 <div class="find_contacts fs_08 d_flex column_gap_04 align_items_center">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="finder" @keyup="findContact">
                 </div>
                 <!-- /.find_contacts -->
                 <div class="contacts d_flex direction_column">

@@ -214,6 +214,15 @@ const app = new Vue ({
             const lastMessageDate = contact.messages[position].date;
             const lastMessageTime = lastMessageDate.substr(10, 6);
             return lastMessageTime;
+        },
+        findContact(){
+            this.contacts.forEach(contact => {
+                if (!contact.name.toLowerCase().includes(this.finder.toLowerCase()) && this.finder.length !== 0) {
+                    contact.visible = false;
+                } else {
+                    contact.visible = true;
+                }
+            });
         }
     }
 })
