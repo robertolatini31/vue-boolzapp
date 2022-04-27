@@ -64,6 +64,10 @@ img {
 
 /* #region COMMON  */
 
+i {
+    cursor: pointer;
+}
+
 .users_img {
     max-width: 40px;
     border-radius: 50%;
@@ -150,6 +154,7 @@ aside {
 .contact {
     padding: 0.5rem 1rem;
     border-top: 2px solid #f9f9f9;
+    cursor: pointer;
 }
 
 .contact span {

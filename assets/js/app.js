@@ -172,8 +172,11 @@ const app = new Vue ({
             this.activeChat = index;
         },
         addMessage() {
+            newDate = new Date().toLocaleDateString();
+            newTime = new Date().toLocaleTimeString();
+            // console.log(newDate, newTime);
             const objNewMessage = {
-                date: new Date().toLocaleDateString(), 
+                date: newDate + ' ' + newTime, 
                 message: this.newMessage,
                 status: 'sent'
             }
