@@ -158,6 +158,10 @@ aside {
     width: 100%;
 }
 
+.small_finder_input {
+    display: none;
+}
+
 .contacts {
     overflow-y: auto;
 }
@@ -241,3 +245,57 @@ aside {
 }
 
 /* #endregion MAIN  */
+
+
+/* #region MEDIAQUERY  */
+
+@media  screen and (max-width: 768px) {
+    .contact>span {
+        display: none;
+    }
+}
+@media  screen and (max-width: 715px) {
+    .user_info>p {
+        display: none;
+    }
+    .last_message_text, .text_notifications {
+        display: none;
+    }
+    .big_finder_input {
+        display: none;
+    }
+    .small_finder_input {
+        display: inline-block;
+    }
+}
+@media  screen and (max-width: 485px) {
+    
+    .user_icons {
+        display: none;
+    }
+
+    .text_contatc>h4 {
+        display: none;
+    }
+
+    .text_message {
+        padding-right: 0;
+    }
+
+    .last_access {
+        display: none;
+    }
+
+    .chat_inputs {
+        padding: 0.4rem 0.3rem;
+    }
+
+}
+
+@media  screen and (max-width: 360px) {
+    .users_info_text>p {
+        display: none;
+    }
+}
+
+/* #endregion MEDIAQUERY  */

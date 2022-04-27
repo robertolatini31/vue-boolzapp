@@ -202,7 +202,7 @@ const app = new Vue ({
             const position = this.contacts[index].messages.length - 1;
             return this.contacts[index].messages[position].message;
         },
-        showLastTimeMessage(index) {
+        showLastMessageTime(index) {
             const position = this.contacts[index].messages.length - 1;
             return this.contacts[index].messages[position].date.substr(10, 6);
         },
