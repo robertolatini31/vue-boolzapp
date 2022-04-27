@@ -71,7 +71,7 @@
                             <img class="users_img" :src="'./assets/img/avatar' + contacts[activeChat].avatar + '.jpg'" alt="">
                             <div class="users_info_text d_flex direction_column">
                                 <p>{{contacts[activeChat].name}}</p>
-                                <span class="last_access">Ultimo accesso alle 12:00</span>
+                                <span class="last_access">Ultimo accesso alle {{ showLastAccess() }}</span>
                             </div>
                         </div>
                         <!-- /.user_info -->

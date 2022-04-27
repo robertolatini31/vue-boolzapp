@@ -209,6 +209,15 @@ const app = new Vue ({
         showTimeMessage(index) {
             return this.contacts[this.activeChat].messages[index].date.substr(10, 6);
         },
+        showLastAccess(){
+            let lastAccessTime = 'sconosciuto';
+            this.contacts[this.activeChat].messages.forEach(message => {
+                if (message.status === 'received') {
+                    lastAccessTime = message.date.substr(10, 6);
+                }
+            });
+            return lastAccessTime;
+        },
         findContact(){
             this.contacts.forEach(contact => {
                 if (!contact.name.toLowerCase().includes(this.finder.toLowerCase()) && this.finder.length !== 0) {
