@@ -7,6 +7,9 @@ const app = new Vue ({
         writingCheck: false,
         onlineCheck: false,
         bannerChat: false,
+        bannerNewChat: false,
+        newChatName: '',
+        newChatImg: '',
         listAphorisms: [
             'Le risposte sincere non sono mai nette né rapide',
             'Il talento vero è possedere le risposte quando ancora non esistono le domande',
@@ -310,12 +313,44 @@ const app = new Vue ({
         },
         deleteChat() {
             this.contacts[this.activeChat].deletedChatCheck = true;
-            if (this.activeChat === this.contacts.length - 1) {
-                this.activeChat--;
-            } else {
-                this.activeChat++;
-            }
+            // if (this.activeChat === this.contacts.length - 1) {
+            //     this.activeChat--;
+            // } else {
+            //     this.activeChat++;
+            // }
             this.bannerChat = false;
+        },
+        addNewChat() {
+            if (this.newChatName.length > 0 && this.newChatName.replace(/\s/g, '').length !== 0 && this.newChatImg.length > 0 && this.newChatImg.replace(/\s/g, '').length !== 0) {
+                const newContact = {
+                    deletedChatCheck: false,
+                    name: this.newChatName,
+                    avatar: this.newChatImg,
+                    visible: true,
+                    messages: [
+                        {
+                            bannerSingleMessage: false,
+                            date: '',
+                            message: '',
+                            status: 'sent'
+                        }
+                    ]
+                }
+                this.contacts.unshift(newContact);
+            }
+            this.bannerNewChat = false;
+            this.newChatImg = '';
+            this.newChatName = '';
+        },
+        openBannerNewContact() {
+            this.bannerNewChat = !this.bannerNewChat;
+        },
+        imgFormatter(index) {
+            if (this.contacts[index].avatar.length > 2) {
+                return this.contacts[index].avatar;
+            } else {
+                return './assets/img/avatar' + this.contacts[index].avatar + '.jpg'
+            }
         }
     }
 })

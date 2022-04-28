@@ -25,8 +25,13 @@
                     <!-- /.user_info -->
                     <div class="user_icons d_flex align_items_center column_gap_08">
                         <i class="fa-solid fa-circle-notch"></i>
-                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-message" @click="openBannerNewContact()"></i>
                         <i class="fa-solid fa-ellipsis-vertical"></i>
+                        <div class="add_new_chat d_flex direction_column" :class="bannerNewChat ? '' : 'd_none'">
+                            <input class="mb_03" type="text" placeholder="Nome Contatto" v-model="newChatName" @keyup.enter="addNewChat()">
+                            <input type="text" placeholder="Link immagine" v-model="newChatImg" @keyup.enter="addNewChat()">
+                            <i class="fa-solid fa-plus btn_add_new_contact" @click="addNewChat()"></i>
+                        </div>
                     </div>
                     <!-- /.user_icons -->
                 </div>
@@ -49,7 +54,7 @@
                 <div class="contacts d_flex direction_column">
                     <div class="contact d_flex justify_content_space_between fs_08" v-for="(contact, index) in contacts" @click="activeMyChat(index)" :class="[(contact.visible ? '' : 'd_none'), (index == activeChat ? 'bg_active' : ''), (contact.deletedChatCheck ? 'd_none' : '')]">
                         <div class="contatcs_info d_flex column_gap_04">
-                            <img class="users_img" :src="'./assets/img/avatar' + contact.avatar + '.jpg'" alt="">
+                            <img class="users_img" :src="imgFormatter(index)" alt="">
                             <div class="text_contatc">
                                 <h4>{{contact.name}}</h4>
                                 <span class="last_message_text">{{ showLastMessage(index) }}</span>
@@ -68,7 +73,7 @@
                 <div class="chat_info">
                     <div class="chat_contact p_05 d_flex justify_content_space_between">
                         <div class="user_info d_flex align_items_center column_gap_04">
-                            <img class="users_img" :src="'./assets/img/avatar' + contacts[activeChat].avatar + '.jpg'" alt="">
+                            <img class="users_img" :src="imgFormatter(activeChat)" alt="">
                             <div class="users_info_text d_flex direction_column">
                                 <p>{{contacts[activeChat].name}}</p>
                                 <span class="last_access" :class="writingCheck || onlineCheck ? 'd_none' : ''">Ultimo accesso alle {{ showLastAccess() }}</span>
