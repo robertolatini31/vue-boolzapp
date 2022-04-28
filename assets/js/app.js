@@ -230,13 +230,14 @@ const app = new Vue ({
                 this.contacts[this.activeChat].messages.push(objNewMessage);
                 this.newMessage = '';
                 this.writingCheck = true;
+                
                 let self = this;
                 setTimeout(function () {
                     const options = { year: "numeric", month: "2-digit", day: "2-digit",};
                     const newDate = new Date().toLocaleDateString(undefined, options);
                     const newTime = new Date().toLocaleTimeString();
                     // console.log(newDate, newTime);
-                    const newAnswer = self.listAphorisms[self.getRndInt(0, self.listAphorisms.length)];
+                    const newAnswer = self.listAphorisms[self.getRndInt(0, 4)];
                     const objNewMessage = {
                         bannerSingleMessage: false,
                         date: newDate + ' ' + newTime, 
@@ -351,7 +352,7 @@ const app = new Vue ({
             } else {
                 return './assets/img/avatar' + this.contacts[index].avatar + '.jpg'
             }
-        }
+        },
     }
 })
 
