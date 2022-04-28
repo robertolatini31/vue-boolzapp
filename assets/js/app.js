@@ -197,29 +197,32 @@ const app = new Vue ({
             const options = { year: "numeric", month: "2-digit", day: "2-digit",};
             const newDate = new Date().toLocaleDateString(undefined, options);
             const newTime = new Date().toLocaleTimeString();
+            let newMessageSpaceOnly = this.newMessage;
             // console.log(newDate, newTime);
-            const objNewMessage = {
-                bannerSingleMessage: false,
-                date: newDate + ' ' + newTime, 
-                message: this.newMessage,
-                status: 'sent'
-            }
-            this.contacts[this.activeChat].messages.push(objNewMessage);
-            this.newMessage = '';
-            let self = this;
-            setTimeout(function () {
-                const options = { year: "numeric", month: "2-digit", day: "2-digit",};
-                const newDate = new Date().toLocaleDateString(undefined, options);
-                const newTime = new Date().toLocaleTimeString();
-                // console.log(newDate, newTime);
+            if (newMessageSpaceOnly.length>0 && newMessageSpaceOnly.replace(/\s/g, '').length!=0) {
                 const objNewMessage = {
                     bannerSingleMessage: false,
                     date: newDate + ' ' + newTime, 
-                    message: 'OK',
-                    status: 'received'
+                    message: this.newMessage,
+                    status: 'sent'
                 }
-                self.contacts[self.activeChat].messages.push(objNewMessage);
-            }, 1000)
+                this.contacts[this.activeChat].messages.push(objNewMessage);
+                this.newMessage = '';
+                let self = this;
+                setTimeout(function () {
+                    const options = { year: "numeric", month: "2-digit", day: "2-digit",};
+                    const newDate = new Date().toLocaleDateString(undefined, options);
+                    const newTime = new Date().toLocaleTimeString();
+                    // console.log(newDate, newTime);
+                    const objNewMessage = {
+                        bannerSingleMessage: false,
+                        date: newDate + ' ' + newTime, 
+                        message: 'OK',
+                        status: 'received'
+                    }
+                    self.contacts[self.activeChat].messages.push(objNewMessage);
+                }, 1000)
+            }
         },
         showLastMessage(index){
             const position = this.contacts[index].messages.length - 1;
