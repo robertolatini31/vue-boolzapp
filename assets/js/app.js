@@ -230,7 +230,10 @@ const app = new Vue ({
                 this.contacts[this.activeChat].messages.push(objNewMessage);
                 this.newMessage = '';
                 this.writingCheck = true;
-                
+                const container = this.$el.querySelector(".chat_messages");
+                this.$nextTick(() => {
+                    container.scrollTop = container.scrollHeight;
+                })
                 let self = this;
                 setTimeout(function () {
                     const options = { year: "numeric", month: "2-digit", day: "2-digit",};
@@ -247,6 +250,9 @@ const app = new Vue ({
                     self.writingCheck = false;
                     self.onlineCheck = true;
                     self.contacts[self.activeChat].messages.push(objNewMessage);
+                    self.$nextTick(() => {
+                        container.scrollTop = container.scrollHeight;
+                    })
                 }, 1000)
                 setInterval(function(){
                     self.onlineCheck = false;
