@@ -6,6 +6,7 @@ const app = new Vue ({
         finder: '',
         writingCheck: false,
         onlineCheck: false,
+        bannerChat: false,
         listAphorisms: [
             'Le risposte sincere non sono mai nette né rapide',
             'Il talento vero è possedere le risposte quando ancora non esistono le domande',
@@ -290,6 +291,14 @@ const app = new Vue ({
         getRndInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1) ) + min;
         },
+        openBannerChat() {
+            this.bannerChat = !this.bannerChat;
+        },
+        deleteAllMessages() {
+            this.contacts[this.activeChat].messages.forEach(message => {
+                message.message = '';
+            });
+        }
     }
 })
 

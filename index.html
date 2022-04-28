@@ -77,10 +77,15 @@
                             </div>
                         </div>
                         <!-- /.user_info -->
-                        <div class="d_flex align_items_center column_gap_08">
+                        <div class="top_chat_icons d_flex align_items_center column_gap_08">
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <i class="fa-solid fa-paperclip"></i>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                            <i class="fa-solid fa-ellipsis-vertical" @click="openBannerChat()"></i>
+                            <div class="banner_chat" :class="bannerChat ? '' : 'd_none'">
+                                <span class="delete_chat">Elimina chat</span> 
+                                <span class="delete_all_messages" @click="deleteAllMessages()">Elimina messaggi</span>
+                            </div>
+                            <!-- /.banner_chat -->
                         </div>
                         <!-- /.user_icons -->
                     </div>
