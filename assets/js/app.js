@@ -263,7 +263,7 @@ const app = new Vue ({
             }
         },
         deleteMessage(index) {
-            this.contacts[this.activeChat].messages[index].message = ''
+            this.$delete(this.contacts[this.activeChat].messages, index)
         }
     }
 })
