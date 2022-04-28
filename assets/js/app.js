@@ -234,10 +234,10 @@ const app = new Vue ({
                     self.writingCheck = false;
                     self.onlineCheck = true;
                     self.contacts[self.activeChat].messages.push(objNewMessage);
-                }, 3000)
+                }, 1000)
                 setInterval(function(){
                     self.onlineCheck = false;
-                }, 5000)
+                }, 3000)
             }
         },
         showLastMessage(index){
