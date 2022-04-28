@@ -306,9 +306,16 @@ const app = new Vue ({
             this.contacts[this.activeChat].messages.forEach(message => {
                 message.message = '';
             });
+            this.bannerChat = false;
         },
         deleteChat() {
             this.contacts[this.activeChat].deletedChatCheck = true;
+            if (this.activeChat === this.contacts.length - 1) {
+                this.activeChat--;
+            } else {
+                this.activeChat++;
+            }
+            this.bannerChat = false;
         }
     }
 })
