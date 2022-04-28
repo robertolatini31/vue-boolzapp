@@ -4,6 +4,8 @@ const app = new Vue ({
         activeChat: 0,
         newMessage: '',
         finder: '',
+        writingCheck: false,
+        onlineCheck: false,
         listAphorisms: [
             'Le risposte sincere non sono mai nette né rapide',
             'Il talento vero è possedere le risposte quando ancora non esistono le domande',
@@ -215,6 +217,7 @@ const app = new Vue ({
                 }
                 this.contacts[this.activeChat].messages.push(objNewMessage);
                 this.newMessage = '';
+                this.writingCheck = true;
                 let self = this;
                 setTimeout(function () {
                     const options = { year: "numeric", month: "2-digit", day: "2-digit",};
@@ -228,8 +231,13 @@ const app = new Vue ({
                         message: newAnswer,
                         status: 'received'
                     }
+                    self.writingCheck = false;
+                    self.onlineCheck = true;
                     self.contacts[self.activeChat].messages.push(objNewMessage);
-                }, 1000)
+                }, 3000)
+                setInterval(function(){
+                    self.onlineCheck = false;
+                }, 5000)
             }
         },
         showLastMessage(index){
