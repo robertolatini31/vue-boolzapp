@@ -86,7 +86,7 @@
                 </div>
                 <!-- /.chat_info -->
                 <div class="chat_messages d_flex direction_column p_1">         
-                    <div v-for="(text, index) in contacts[activeChat].messages"  @click="bannerSingle(index)" :class="[(text.status === 'sent' ? 'message_sent' : 'message_received'),(text.message.length === 0 ? 'd_none' : '')]" class="d_flex direction_column single_message">
+                    <div  v-for="(text, index) in contacts[activeChat].messages" @click="bannerSingle(index)" :class="[(text.status === 'sent' ? 'message_sent' : 'message_received'),(text.message.length === 0 ? 'd_none' : '')]" class="d_flex direction_column single_message">
                         <span class="text_message">{{ text.message }}</span>
                         <span class="hours">{{ showTimeMessage(index) }}</span>
                         <div class="banner_cancel" :class="text.bannerSingleMessage ? '' : 'd_none' ">

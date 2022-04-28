@@ -225,8 +225,14 @@ const app = new Vue ({
             }
         },
         showLastMessage(index){
-            const position = this.contacts[index].messages.length - 1;
-            return this.contacts[index].messages[position].message;
+            let position = this.contacts[index].messages.length - 1;
+            
+            while (position >= 0) {
+                if (this.contacts[index].messages[position].message.length !== 0) {
+                    return this.contacts[index].messages[position].message;
+                }
+                position--;
+            }
         },
         showLastMessageTime(index) {
             const position = this.contacts[index].messages.length - 1;
@@ -255,15 +261,15 @@ const app = new Vue ({
         },
         bannerSingle(index) {
             if (this.contacts[this.activeChat].messages[index].bannerSingleMessage) {
-              console.log('era true metto false');
+              // console.log('era true metto false');
               this.contacts[this.activeChat].messages[index].bannerSingleMessage = false;
             } else {
-              console.log('era false metto true');
+              // console.log('era false metto true');
               this.contacts[this.activeChat].messages[index].bannerSingleMessage = true;
             }
         },
         deleteMessage(index) {
-            this.$delete(this.contacts[this.activeChat].messages, index)
+            this.contacts[this.activeChat].messages[index].message = '';
         }
     }
 })
