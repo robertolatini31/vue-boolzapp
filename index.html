@@ -101,7 +101,8 @@
                 <div class="chat_inputs d_flex align_items_center justify_content_space_between">
                     <i class="fa-solid fa-face-smile"></i>
                     <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage">
-                    <i class="fa-solid fa-microphone"></i>
+                    <i class="fa-solid fa-microphone" :class="newMessage.length == 0 ? '' : 'd_none'"></i>
+                    <i class="fa-solid fa-paper-plane" :class="newMessage.length !== 0 ? '' : 'd_none'" @click="addMessage"></i>
                 </div>
                 <!-- /.chat_inputs -->
             </main>

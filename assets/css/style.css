@@ -267,6 +267,14 @@ aside {
     align-self: flex-end;
 }
 
+.fa-paper-plane {
+    background-color: hsl(214deg 89% 52%);
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: white!important;
+    font-size: 14px;
+}
+
 
 
 /* #endregion MAIN  */
