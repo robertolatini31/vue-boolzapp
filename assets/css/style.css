@@ -229,9 +229,11 @@ aside {
     font-size: 0.8rem;
 }
 
-.text_message {
-    padding-right: 4rem;
+.text_message>i {
+    padding-left: 4rem;
+    color: var(--darker_grey_color);
 }
+
 
 .users_info_text>.last_access {
     color: var(--darker_grey_color);
@@ -251,7 +253,7 @@ aside {
 .banner_cancel {
     position: absolute;
     z-index: 3;
-    top: 3px;
+    top: 20px;
     right: 0;
     background-color: var(--light_grey_color);
     border: 2px solid whitesmoke;
