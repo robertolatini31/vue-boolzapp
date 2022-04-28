@@ -4,6 +4,13 @@ const app = new Vue ({
         activeChat: 0,
         newMessage: '',
         finder: '',
+        listAphorisms: [
+            'Le risposte sincere non sono mai nette né rapide',
+            'Il talento vero è possedere le risposte quando ancora non esistono le domande',
+            'Mi dispiace, le mie risposte sono limitate. Devi farmi le domande giuste',
+            'Vi sono risposte che non avrei la forza di ascoltare e perciò evito di porre le domande',
+            'Poni le domande giuste se stai cercando le risposte giuste'
+        ],
         contacts: [
             {
                 name: 'Michele',
@@ -214,10 +221,11 @@ const app = new Vue ({
                     const newDate = new Date().toLocaleDateString(undefined, options);
                     const newTime = new Date().toLocaleTimeString();
                     // console.log(newDate, newTime);
+                    const newAnswer = self.listAphorisms[self.getRndInt(0, self.listAphorisms.length)];
                     const objNewMessage = {
                         bannerSingleMessage: false,
                         date: newDate + ' ' + newTime, 
-                        message: 'OK',
+                        message: newAnswer,
                         status: 'received'
                     }
                     self.contacts[self.activeChat].messages.push(objNewMessage);
@@ -270,7 +278,10 @@ const app = new Vue ({
         },
         deleteMessage(index) {
             this.contacts[this.activeChat].messages[index].message = '';
-        }
+        },
+        getRndInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) ) + min;
+        },
     }
 })
 
