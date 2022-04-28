@@ -16,6 +16,7 @@ const app = new Vue ({
         ],
         contacts: [
             {
+                deletedChatCheck: false,
                 name: 'Michele',
                 avatar: '_1',
                 visible: true,
@@ -41,6 +42,7 @@ const app = new Vue ({
                 ],
             },
             {
+                deletedChatCheck: false,
                 name: 'Fabio',
                 avatar: '_2',
                 visible: true,
@@ -66,6 +68,7 @@ const app = new Vue ({
                 ],
             },
             {
+                deletedChatCheck: false,
                 name: 'Samuele',
                 avatar: '_3',
                 visible: true,
@@ -91,6 +94,7 @@ const app = new Vue ({
                 ],
             },
             {
+                deletedChatCheck: false,
                 name: 'Alessandro B.',
                 avatar: '_4',
                 visible: true,
@@ -110,6 +114,7 @@ const app = new Vue ({
                 ],
             },
             {
+                deletedChatCheck: false,
                 name: 'Alessandro L.',
                 avatar: '_5',
                 visible: true,
@@ -129,6 +134,7 @@ const app = new Vue ({
                 ],
             },
             {
+                deletedChatCheck: false,
                 name: 'Claudia',
                 avatar: '_6',
                 visible: true,
@@ -154,6 +160,7 @@ const app = new Vue ({
                 ],
             },
             {
+                deletedChatCheck: false,
                 name: 'Federico',
                 avatar: '_7',
                 visible: true,
@@ -173,6 +180,7 @@ const app = new Vue ({
                 ],
             },
             {
+                deletedChatCheck: false,
                 name: 'Davide',
                 avatar: '_8',
                 visible: true,
@@ -298,6 +306,9 @@ const app = new Vue ({
             this.contacts[this.activeChat].messages.forEach(message => {
                 message.message = '';
             });
+        },
+        deleteChat() {
+            this.contacts[this.activeChat].deletedChatCheck = true;
         }
     }
 })

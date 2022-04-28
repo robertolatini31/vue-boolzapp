@@ -47,7 +47,7 @@
                 </div>
                 <!-- /.find_contacts -->
                 <div class="contacts d_flex direction_column">
-                    <div class="contact d_flex justify_content_space_between fs_08" v-for="(contact, index) in contacts" @click="activeMyChat(index)" :class="[(contact.visible ? '' : 'd_none'), (index == activeChat ? 'bg_active' : '')]">
+                    <div class="contact d_flex justify_content_space_between fs_08" v-for="(contact, index) in contacts" @click="activeMyChat(index)" :class="[(contact.visible ? '' : 'd_none'), (index == activeChat ? 'bg_active' : ''), (contact.deletedChatCheck ? 'd_none' : '')]">
                         <div class="contatcs_info d_flex column_gap_04">
                             <img class="users_img" :src="'./assets/img/avatar' + contact.avatar + '.jpg'" alt="">
                             <div class="text_contatc">
@@ -82,7 +82,7 @@
                             <i class="fa-solid fa-paperclip"></i>
                             <i class="fa-solid fa-ellipsis-vertical" @click="openBannerChat()"></i>
                             <div class="banner_chat" :class="bannerChat ? '' : 'd_none'">
-                                <span class="delete_chat">Elimina chat</span> 
+                                <span class="delete_chat" @click="deleteChat()">Elimina chat</span> 
                                 <span class="delete_all_messages" @click="deleteAllMessages()">Elimina messaggi</span>
                             </div>
                             <!-- /.banner_chat -->
@@ -93,7 +93,7 @@
                 </div>
                 <!-- /.chat_info -->
                 <div class="chat_messages d_flex direction_column p_1">         
-                    <div  v-for="(text, index) in contacts[activeChat].messages" :class="[(text.status === 'sent' ? 'message_sent' : 'message_received'),(text.message.length === 0 ? 'd_none' : '')]" class="d_flex direction_column single_message">
+                    <div  v-for="(text, index) in contacts[activeChat].messages" :class="[(text.status === 'sent' ? 'message_sent' : 'message_received'), (text.message.length === 0 ? 'd_none' : ''), (contacts[activeChat].deletedChatCheck ? 'd_none' : '')]" class="d_flex direction_column single_message">
                         <span class="text_message d_flex align_items_center">
                             {{ text.message }}
                             <i class="fa-solid fa-angle-down" @click="bannerSingle(index)"></i>
