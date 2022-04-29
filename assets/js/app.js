@@ -320,11 +320,11 @@ const app = new Vue ({
         },
         deleteChat() {
             this.contacts[this.activeChat].deletedChatCheck = true;
-            // if (this.activeChat === this.contacts.length - 1) {
-            //     this.activeChat--;
-            // } else {
-            //     this.activeChat++;
-            // }
+             if (this.activeChat === this.contacts.length - 1) {
+                this.activeChat--;
+            } else {
+                 this.activeChat++;
+             }
             this.bannerChat = false;
         },
         addNewChat() {
