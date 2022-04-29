@@ -57,12 +57,12 @@
                             <img v-if="contacts.length !== 0" class="users_img" :src="imgFormatter(index)" alt="">
                             <div class="text_contatc">
                                 <h4>{{contact.name}}</h4>
-                                <span v-if="(contact.messages.length !== 0 || contacts.length !== 0)" class="last_message_text">{{ showLastMessage(index) }}</span>
+                                <span v-if="contact.messages.length !== 0" class="last_message_text">{{ showLastMessage(index) }}</span>
                             </div>
                             <!-- /.text_contatc -->
                         </div>
                         <!-- /.contatcs_info -->
-                        <span v-if="contact.messages.length !== 0 || contacts.length !== 0">{{ showLastMessageTime(index) }}</span>
+                        <span v-if="contact.messages.length !== 0">{{ showLastMessageTime(index) }}</span>
                     </div>
                     <!-- /.contact -->
                 </div>
