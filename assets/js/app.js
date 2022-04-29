@@ -304,7 +304,7 @@ const app = new Vue ({
             }
         },
         deleteMessage(index) {
-            this.contacts[this.activeChat].messages[index].message = '';
+            this.contacts[this.activeChat].messages.splice(index, 1);
         },
         getRndInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1) ) + min;
@@ -313,13 +313,12 @@ const app = new Vue ({
             this.bannerChat = !this.bannerChat;
         },
         deleteAllMessages() {
-            this.contacts[this.activeChat].messages.forEach(message => {
-                message.message = '';
-            });
+            const arrayLength = this.contacts[this.activeChat].messages.length;
+            this.contacts[this.activeChat].messages.splice(0, arrayLength);
             this.bannerChat = false;
         },
         deleteChat() {
-            this.contacts[this.activeChat].deletedChatCheck = true;
+            this.contacts.splice(this.activeChat, 1);
              if (this.activeChat === this.contacts.length - 1) {
                 this.activeChat--;
             } else {
