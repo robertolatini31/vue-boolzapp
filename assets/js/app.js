@@ -230,7 +230,7 @@ const app = new Vue ({
                 this.contacts[this.activeChat].messages.push(objNewMessage);
                 this.newMessage = '';
                 this.writingCheck = true;
-                const container = this.$el.querySelector(".chat_messages");
+                const container = this.$el.querySelector(".cont_mod");
                 this.$nextTick(() => {
                     container.scrollTop = container.scrollHeight;
                 })
@@ -319,11 +319,11 @@ const app = new Vue ({
         },
         deleteChat() {
             this.contacts.splice(this.activeChat, 1);
-             if (this.activeChat === this.contacts.length - 1) {
-                this.activeChat--;
-            } else {
-                 this.activeChat++;
-             }
+            //  if (this.activeChat === this.contacts.length - 1) {
+            //     this.activeChat--;
+            // } else {
+            //      this.activeChat++;
+            //  }
             this.bannerChat = false;
         },
         addNewChat() {

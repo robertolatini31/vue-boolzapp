@@ -54,15 +54,15 @@
                 <div class="contacts d_flex direction_column">
                     <div v-if="contacts.length !== 0" class="contact d_flex justify_content_space_between fs_08" v-for="(contact, index) in contacts" @click="activeMyChat(index)" :class="[(contact.visible ? '' : 'd_none'), (index == activeChat ? 'bg_active' : ''), (contact.deletedChatCheck ? 'd_none' : '')]">
                         <div class="contatcs_info d_flex column_gap_04">
-                            <img v-if="contacts.length !== 0" class="users_img" :src="imgFormatter(index)" alt="">
+                            <img v-if="contacts.length !== 0 && contacts.length !== 0" class="users_img" :src="imgFormatter(index)" alt="">
                             <div class="text_contatc">
                                 <h4>{{contact.name}}</h4>
-                                <span v-if="contact.messages.length !== 0" class="last_message_text">{{ showLastMessage(index) }}</span>
+                                <span v-if="contact.messages.length !== 0 && contacts.length !== 0" class="last_message_text">{{ showLastMessage(index) }}</span>
                             </div>
                             <!-- /.text_contatc -->
                         </div>
                         <!-- /.contatcs_info -->
-                        <span v-if="contact.messages.length !== 0">{{ showLastMessageTime(index) }}</span>
+                        <span v-if="contact.messages.length !== 0 && contacts.length !== 0">{{ showLastMessageTime(index) }}</span>
                     </div>
                     <!-- /.contact -->
                 </div>
@@ -74,7 +74,7 @@
                     <div class="chat_contact p_05 d_flex justify_content_space_between">
                         <div class="user_info d_flex align_items_center column_gap_04">
                             <img v-if="contacts.length !== 0" class="users_img" :src="imgFormatter(activeChat)" alt="">
-                            <div class="users_info_text d_flex direction_column">
+                            <div v-if="contacts.length !== 0" class="users_info_text d_flex direction_column">
                                 <p v-if="contacts.length !== 0">{{contacts[activeChat].name}}</p>
                                 <span v-if="contacts.length !== 0" class="last_access" :class="writingCheck || onlineCheck ? 'd_none' : ''">Ultimo accesso alle {{ showLastAccess() }}</span>
                                 <span class="last_access" :class="writingCheck ? '' : 'd_none'">Sta scrivendo...</span>
@@ -97,20 +97,22 @@
                     <!-- /.user_contact -->
                 </div>
                 <!-- /.chat_info -->
-                <div class="chat_messages d_flex direction_column p_1">         
-                    <div  v-for="(text, index) in contacts[activeChat].messages" :class="[(text.status === 'sent' ? 'message_sent' : 'message_received'), (text.message.length === 0 ? 'd_none' : ''), (contacts[activeChat].deletedChatCheck ? 'd_none' : '')]" class="d_flex direction_column single_message">
-                        <span v-if="contacts.length !== 0" class="text_message d_flex align_items_center">
-                            {{ text.message }}
-                            <i class="fa-solid fa-angle-down" @click="bannerSingle(index)"></i>
-                        </span>
-                        <span v-if="contacts.length !== 0" class="hours">{{ showTimeMessage(index) }}</span>
-                        <div class="banner_cancel" :class="text.bannerSingleMessage ? '' : 'd_none' ">
-                            <span class="info_message_banner">Informazioni</span>
-                            <span v-if="contacts.length !== 0" class="cancel_message_banner" @click="deleteMessage(index)">Elimina</span>
+                <div class="cont_mod p_1">         
+                    <div class="chat_messages d_flex direction_column" v-if="contacts.length !== 0">
+                        <div v-for="(text, index) in contacts[activeChat].messages" :class="[(text.status === 'sent' ? 'message_sent' : 'message_received'), (text.message.length === 0 ? 'd_none' : ''), (contacts[activeChat].deletedChatCheck ? 'd_none' : '')]" class="d_flex direction_column single_message">
+                            <span v-if="contacts.length !== 0" class="text_message d_flex align_items_center">
+                                {{ text.message }}
+                                <i class="fa-solid fa-angle-down" @click="bannerSingle(index)"></i>
+                            </span>
+                            <span v-if="contacts.length !== 0" class="hours">{{ showTimeMessage(index) }}</span>
+                            <div class="banner_cancel" :class="text.bannerSingleMessage ? '' : 'd_none' ">
+                                <span class="info_message_banner">Informazioni</span>
+                                <span v-if="contacts.length !== 0" class="cancel_message_banner" @click="deleteMessage(index)">Elimina</span>
+                            </div>
+                            <!-- /.banner_cancel -->       
                         </div>
-                        <!-- /.banner_cancel -->       
+                        <!-- /.message sent-received  -->
                     </div>
-                    <!-- /.message sent-received  -->
                 </div>
                 <!-- /.chat_space -->
                 <div class="chat_inputs d_flex align_items_center justify_content_space_between">
