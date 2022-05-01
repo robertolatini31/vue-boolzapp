@@ -319,11 +319,7 @@ const app = new Vue ({
         },
         deleteChat() {
             this.contacts.splice(this.activeChat, 1);
-            //  if (this.activeChat === this.contacts.length - 1) {
-            //     this.activeChat--;
-            // } else {
-            //      this.activeChat++;
-            //  }
+            this.activeChat = 0;
             this.bannerChat = false;
         },
         addNewChat() {
