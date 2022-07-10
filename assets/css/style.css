@@ -194,6 +194,7 @@ aside {
 }
 
 .add_new_chat {
+    z-index: 400;
     position: absolute;
     top: 30px;
     left: 25px;
@@ -335,6 +336,9 @@ aside {
     margin-bottom: 0.3rem;
 }
 
+.delete_chat, .delete_all_messages {
+    cursor: pointer;
+}
 
 
 /* #endregion MAIN  */
